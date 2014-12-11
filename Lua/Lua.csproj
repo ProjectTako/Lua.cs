@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C057548D-97A8-4F28-883E-CF883BEC56A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lua</RootNamespace>
+    <AssemblyName>Lua</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Binding\BindingError.cs" />
+    <Compile Include="Binding\BindingUtil.cs" />
+    <Compile Include="Binding\LuaBindingException.cs" />
+    <Compile Include="Binding\LuaClassAttribute.cs" />
+    <Compile Include="Binding\LuaClassBinder.cs" />
+    <Compile Include="Binding\LuaConstructorAttribute.cs" />
+    <Compile Include="Binding\LuaFunctionAttribute.cs" />
+    <Compile Include="Binding\LuaFunctionBinder.cs" />
+    <Compile Include="Binding\LuaFunctionBinder.Public.cs" />
+    <Compile Include="Binding\LuaFunctionBinder.Static.cs" />
+    <Compile Include="Binding\LuaInstanceAttribute.cs" />
+    <Compile Include="Binding\LuaModuleAttribute.cs" />
+    <Compile Include="Binding\LuaModuleBinder.cs" />
+    <Compile Include="Compiler\CompilerError.cs" />
+    <Compile Include="Compiler\ConstantPool.cs" />
+    <Compile Include="Compiler\Expressions\IBlockExpression.cs" />
+    <Compile Include="Compiler\FunctionContext.cs" />
+    <Compile Include="Compiler\Expressions\FieldExpression.cs" />
+    <Compile Include="Compiler\Expressions\IConstantExpression.cs" />
+    <Compile Include="Compiler\Expressions\IndexerExpression.cs" />
+    <Compile Include="Compiler\Expressions\IStorableExpression.cs" />
+    <Compile Include="Compiler\Expressions\ObjectExpression.cs" />
+    <Compile Include="Compiler\Instruction.cs" />
+    <Compile Include="Compiler\Parselets\FieldParselet.cs" />
+    <Compile Include="Compiler\Parselets\IndexerParselet.cs" />
+    <Compile Include="Compiler\Parselets\TableParselet.cs" />
+    <Compile Include="Compiler\Parser.Static.cs" />
+    <Compile Include="Compiler\Scope.cs" />
+    <Compile Include="CoreAnnotations.cs" />
+    <Compile Include="Compiler\ExpressionCompiler.cs" />
+    <Compile Include="Compiler\Expressions\BlockExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\BreakExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\RepeatUntilExpression.cs" />
+    <Compile Include="Compiler\Expressions\EmptyExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\ForExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\FunctionExpression.cs" />
+    <Compile Include="Compiler\Expressions\IStatementExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\IfExpression.cs" />
+    <Compile Include="Compiler\Expressions\NilExpression.cs" />
+    <Compile Include="Compiler\Expressions\NumberExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\ReturnExpression.cs" />
+    <Compile Include="Compiler\Expressions\ScopeExpression.cs" />
+    <Compile Include="Compiler\Expressions\StringExpression.cs" />
+    <Compile Include="Compiler\Expressions\BoolExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\LocalExpression.cs" />
+    <Compile Include="Compiler\Expressions\Statements\WhileExpression.cs" />
+    <Compile Include="Compiler\Parselets\BinaryOperatorParselet.cs" />
+    <Compile Include="Compiler\Expressions\CallExpression.cs" />
+    <Compile Include="Compiler\Expressions\Expression.cs" />
+    <Compile Include="Compiler\Expressions\IdentifierExpression.cs" />
+    <Compile Include="Compiler\Expressions\BinaryOperatorExpression.cs" />
+    <Compile Include="Compiler\Expressions\PrefixOperatorExpression.cs" />
+    <Compile Include="Compiler\Parselets\Statements\BreakParselet.cs" />
+    <Compile Include="Compiler\Parselets\CallParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\RepeatUntilParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\ForParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\FunctionParselet.cs" />
+    <Compile Include="Compiler\Parselets\GroupParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\IfParselet.cs" />
+    <Compile Include="Compiler\Parselets\IInfixParselet.cs" />
+    <Compile Include="Compiler\Parselets\IPrefixParselet.cs" />
+    <Compile Include="Compiler\Lexer.cs" />
+    <Compile Include="Compiler\Parselets\IdentifierParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\IStatementParselet.cs" />
+    <Compile Include="Compiler\Parselets\NilParselet.cs" />
+    <Compile Include="Compiler\Parselets\PrefixOperatorParselet.cs" />
+    <Compile Include="Compiler\Parselets\NumberParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\ReturnParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\ScopeParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\SemicolonParselet.cs" />
+    <Compile Include="Compiler\Parselets\StringParselet.cs" />
+    <Compile Include="Compiler\Parselets\BoolParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\LocalParselet.cs" />
+    <Compile Include="Compiler\Parselets\Statements\WhileParselet.cs" />
+    <Compile Include="Compiler\Parser.cs" />
+    <Compile Include="Compiler\PrecedenceValue.cs" />
+    <Compile Include="GenericComparer.cs" />
+    <Compile Include="IndentTextWriter.cs" />
+    <Compile Include="IndexedStack.cs" />
+    <Compile Include="LuaCompilerException.cs" />
+    <Compile Include="LuaCompilerOptions.cs" />
+    <Compile Include="LuaException.cs" />
+    <Compile Include="LuaValueType.cs" />
+    <Compile Include="VirtualMachine\Machine.Stacks.cs" />
+    <Compile Include="VirtualMachine\Table.cs" />
+    <Compile Include="LuaValue.Enumerable.cs" />
+    <Compile Include="LuaValue.Operators.cs" />
+    <Compile Include="LuaValue.Serialize.cs" />
+    <Compile Include="VirtualMachine\RuntimeError.cs" />
+    <Compile Include="VirtualMachine\Closure.cs" />
+    <Compile Include="VirtualMachine\DebugInfo.cs" />
+    <Compile Include="VirtualMachine\Machine.cs" />
+    <Compile Include="LuaProgram.cs" />
+    <Compile Include="LuaRuntimeException.cs" />
+    <Compile Include="LuaState.cs" />
+    <Compile Include="LuaValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Compiler\Token.cs" />
+    <Compile Include="VirtualMachine\Frame.cs" />
+    <Compile Include="VirtualMachine\ReturnAddress.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compiler\InstructionOperands.cs" />
+    <Compile Include="Compiler\FunctionContext.Helper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Compiler\Lexer.Static.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
